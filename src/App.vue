@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <form>
+      <input type="file" @change="readfile" />
+    </form>
+    <div>{{ data }}</div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      data: []
+    }
+  },
+  methods: {
+    readfile: function(e) {
+      const vm = this
+      const file = e.target.files[0]
+      const reader = new FileReader()
+
+      reader.onload = function() {
+        vm.data = reader.result
+      }
+      reader.readAsText( file )
+    }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
