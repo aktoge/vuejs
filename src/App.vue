@@ -17,7 +17,7 @@
     <div>DATA:{{ textData }}</div>
     <div>Prop:{{ fileName }}</div>
 
-    <button class="btn btn-success">アップロード</button>
+    <button class="btn btn-success" @click="scrSample">アップロード</button>
 
   </div>
 </template>
@@ -65,6 +65,9 @@ export default {
       }else{
         this.styleDrag = false
       }
+    },
+    scrSample: function() {
+      this.textData = this.textData.toUpperCase() ;
     },
   }
 }
