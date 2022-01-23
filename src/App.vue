@@ -19,6 +19,8 @@
 
     <button class="btn btn-success" @click="scrSample">アップロード</button>
 
+    <div>{{info}}</div>
+
   </div>
 </template>
 
@@ -30,7 +32,8 @@ export default {
       fileName: 'none',
       stylePre: true,
       styleDrag: false,
-      stylePost: false
+      stylePost: false,
+      info: null
     }
   },
   methods: {
