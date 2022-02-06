@@ -32,6 +32,9 @@ export default {
       info: null
     }
   },
+  unmounted: function() {             
+    console.log('updated!')         
+  },  
   methods: {
     uploadFile: function(event){
       // console.log(event)
